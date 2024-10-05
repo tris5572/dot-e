@@ -13,6 +13,9 @@ type Props = {
   border?: string;
 };
 
+/**
+ * 1つのドットを表示するコンポーネント
+ */
 export function Dot(props: Props) {
   return (
     <div
