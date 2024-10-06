@@ -32,7 +32,7 @@ export function RGBSelector(props: Props) {
         <OneColorLine>
           <LabelBox>R</LabelBox>
           <Slider
-            color="red"
+            color="rgb(230 0 0)"
             value={red}
             onChange={(v) => {
               setRed(v);
@@ -49,7 +49,7 @@ export function RGBSelector(props: Props) {
         <OneColorLine>
           <LabelBox>G</LabelBox>
           <Slider
-            color="green"
+            color="rgb(0 220 0)"
             value={green}
             onChange={(v) => {
               setGreen(v);
@@ -66,7 +66,7 @@ export function RGBSelector(props: Props) {
         <OneColorLine>
           <LabelBox>B</LabelBox>
           <Slider
-            color="blue"
+            color="rgb(0 0 255)"
             value={blue}
             onChange={(v) => {
               setBlue(v);
