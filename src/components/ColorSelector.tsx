@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { RGB } from '../types/colors';
 
 type Props = {
   /**
    * 色が変更されたときに呼び出す関数
    */
-  onChange: (color: string) => void;
+  onChange: (color: RGB) => void;
 };
 
 /**
@@ -21,7 +22,12 @@ export function RGBSelector(props: Props) {
    * 単純に `red` 等から色を生成するだけでは変更後の値が反映されないため、最新の値を受け取る。
    */
   const handleChange = (color: { r?: number; g?: number; b?: number }) => {
-    const c = `rgb(${color.r ?? red} ${color.g ?? green} ${color.b ?? blue})`;
+    const c = {
+      type: 'RGB',
+      red: color.r ?? red,
+      green: color.g ?? green,
+      blue: color.b ?? blue,
+    } satisfies RGB;
     props.onChange(c);
   };
 
