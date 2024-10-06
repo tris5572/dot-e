@@ -1,11 +1,15 @@
 import { Canvas } from './Canvas';
-import { ColorSelector } from './ColorSelector';
+import { RGBSelector } from './ColorSelector';
 
 export function App() {
   return (
     <>
       <Canvas />
-      <ColorSelector onChange={() => {}} />
+      <RGBSelector
+        onChange={(color) => {
+          console.log(color);
+        }}
+      />
     </>
   );
 }
