@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { Color } from '../types/colors';
 import { color2string } from '../utils/color';
 
@@ -14,6 +15,10 @@ type Props = {
    * 縁取りのスタイル。CSS の `border` プロパティに指定する値。省略時は縁取りなし。
    */
   border?: string;
+  /**
+   * スタイルのクラス名。styled-components でスタイルを追加指定するためのもの。
+   */
+  className?: string;
 };
 
 /**
@@ -21,13 +26,18 @@ type Props = {
  */
 export function Dot(props: Props) {
   return (
-    <div
-      style={{
-        width: `${props.size}px`,
-        height: `${props.size}px`,
-        background: color2string(props.color),
-        border: props.border,
-      }}
+    <StyledDot
+      className={props.className}
+      $size={props.size}
+      $color={color2string(props.color)}
+      $border={props.border}
     />
   );
 }
+
+const StyledDot = styled.div<{ $size: number; $color: string; $border?: string }>`
+  width: ${({ $size }) => $size}px;
+  height: ${({ $size }) => $size}px;
+  background: ${({ $color }) => $color};
+  border: ${({ $border }) => $border};
+`;

@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import { Dot } from './Dot';
 import { canvasBorderAtom } from '../atoms/app';
+import styled from 'styled-components';
 
 const X_SIZE = 40;
 const Y_SIZE = 40;
@@ -11,7 +12,7 @@ export function Canvas() {
   return (
     <div onClick={() => setBorderFlag(!borderFlag)}>
       {[...Array(Y_SIZE)].map((_, y) => (
-        <div style={{ display: 'flex' }} key={y}>
+        <Flex key={y}>
           {[...Array(X_SIZE)].map((_, x) => (
             <Dot
               size={10}
@@ -21,8 +22,12 @@ export function Canvas() {
               key={`${x}-${y}`}
             />
           ))}
-        </div>
+        </Flex>
       ))}
     </div>
   );
 }
+
+const Flex = styled.div`
+  display: flex;
+`;
