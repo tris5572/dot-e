@@ -15,7 +15,8 @@ export function Canvas() {
           {[...Array(X_SIZE)].map((_, x) => (
             <Dot
               size={10}
-              color={`hsl(${y * 9} 80% ${x * 2 + 10}%)`}
+              // color={`hsl(${y * 9} 80% ${x * 2 + 10}%)`}
+              color={{ type: 'RGB', red: 0, green: x * 4, blue: y * 4 }}
               border={borderFlag ? '0.5px solid #FFF7' : undefined}
               key={`${x}-${y}`}
             />

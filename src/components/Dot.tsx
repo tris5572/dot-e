@@ -1,3 +1,6 @@
+import { Color } from '../types/colors';
+import { color2string } from '../utils/color';
+
 type Props = {
   /**
    * ドットのサイズ。縦横のピクセル数。
@@ -6,7 +9,7 @@ type Props = {
   /**
    * 塗りつぶす色。
    */
-  color: string;
+  color: Color;
   /**
    * 縁取りのスタイル。CSS の `border` プロパティに指定する値。省略時は縁取りなし。
    */
@@ -22,7 +25,7 @@ export function Dot(props: Props) {
       style={{
         width: `${props.size}px`,
         height: `${props.size}px`,
-        background: props.color,
+        background: color2string(props.color),
         border: props.border,
       }}
     />
