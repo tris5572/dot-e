@@ -1,4 +1,5 @@
 import { Canvas } from './Canvas';
+import { ColorPalette } from './ColorPalette';
 import { RGBSelector } from './ColorSelector';
 
 export function App() {
@@ -10,6 +11,7 @@ export function App() {
           console.log(color);
         }}
       />
+      <ColorPalette />
     </>
   );
 }
