@@ -150,22 +150,22 @@ function Slider(props: {
       onChange={(e) => props.onChange(Number(e.target.value))}
       width={props.width}
       $color={props.color}
-      $gradient={props.gradient}
+      style={{
+        background: props.gradient
+          ? `linear-gradient(to right, ${props.gradient[0]}, ${props.gradient[1]})`
+          : undefined,
+      }}
     />
   );
 }
 
-const StyledSlider = styled.input<{ $color: string; $gradient?: [string, string] }>`
+const StyledSlider = styled.input<{ $color: string }>`
   -webkit-appearance: none;
   appearance: none;
   outline: none;
   cursor: pointer;
   width: ${(props) => props.width};
-
-  background: ${({ $gradient }) =>
-    $gradient ? `linear-gradient(to right, ${$gradient[0]}, ${$gradient[1]})` : undefined};
   height: 6px;
-  /* border: 1px solid ${({ $color }) => $color}; */
   border-radius: 10px;
 
   &::-webkit-slider-thumb {

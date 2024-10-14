@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Color } from '../types/colors';
 import { color2string } from '../utils/color';
 
@@ -35,9 +34,16 @@ export function Dot(props: Props) {
   );
 }
 
-const StyledDot = styled.div<{ $size: number; $color: string; $border?: string }>`
-  width: ${({ $size }) => $size}px;
-  height: ${({ $size }) => $size}px;
-  background: ${({ $color }) => $color};
-  border: ${({ $border }) => $border};
-`;
+function StyledDot(props: { $size: number; $color: string; $border?: string; className?: string }) {
+  return (
+    <div
+      className={props.className}
+      style={{
+        width: props.$size,
+        height: props.$size,
+        background: props.$color,
+        border: props.$border,
+      }}
+    ></div>
+  );
+}
